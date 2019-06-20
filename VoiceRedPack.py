@@ -37,7 +37,7 @@ def screenshot_process():
     global simHoldPosY
     img = Image.open('Screenshot.png')
     if img.size == (1440, 2880):
-        cutsize = (191, 1575, 1252, 2312)
+        cutsize = (191, 1475, 1252, 2212)
         simClickPosX = '1000' # your own red pack --> X=300
         simClickPosY = '2000'
         simHoldPosX = '750'
@@ -64,6 +64,8 @@ def ocr_result():
     result_list = list()
     for i in word_list:
         result_list.append(i.get('words'))
+    if result_list[0] == "自":
+        result_list.remove("自")
     result_str = ' '.join(result_list)
     print(result_str)
     return result_str
